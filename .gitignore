@@ -2,3 +2,7 @@
 target/
 Cargo.lock
 **/*.rs.bk
+
+# Compiled binaries (hello_world)
+hello_world/main
+hello_world/shadowing
