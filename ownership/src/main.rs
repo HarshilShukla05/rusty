@@ -107,15 +107,38 @@
 //MUTABLE AND IMMMUTABLE REFERECENCES
 //scope
 
+// fn main() {
+//     //This code doesnt compile
+//     let mut s = String::from("hello");
+//
+//     let r1 = &s; // no problem
+//     let r2 = &s; // no problem
+//     // let r3 = &mut s; // BIG PROBLEM
+//     println!("{r1} and {r2}");
+//
+//     let r3 = &mut s;
+//     println!("{r3}");
+// }
+
+//DANGLING REFERECENCES: By design never happens in rust
 fn main() {
-    //This code doesnt compile
-    let mut s = String::from("hello");
+    let reference_to_nothing = dangle();
 
-    let r1 = &s; // no problem
-    let r2 = &s; // no problem
-    // let r3 = &mut s; // BIG PROBLEM
-    println!("{r1} and {r2}");
-
-    let r3 = &mut s;
-    println!("{r3}");
+    println!("{reference_to_nothing}");
 }
+
+fn dangle() -> String {
+    // let s = String::from("hello");
+    //
+    // &s
+    let s = String::from("thread_local!");
+    s
+} //DROP the reference of s , and the fnc is retrunings its reference only
+//Means the reference would be pointing to an invalid string
+
+// SOLUTION: Retunr the string directly
+
+//RULES of REFERECENCES
+/*
+ * At any given time, you can have either one mutable reference or any number of immutable references.
+ * References must always be valid.*/
