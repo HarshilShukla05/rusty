@@ -18,6 +18,16 @@ My journey learning Rust by working through [The Rust Programming Language](http
 | `guessing_gamer` | The guessing game |
 | `ownership` | Ownership, references, and borrowing |
 
+## Prerequisites
+
+Install the Rust toolchain (`rustc` + `cargo`) via [rustup](https://rustup.rs):
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+That's the only setup needed. Each project's dependencies (listed in its `Cargo.toml`) are downloaded and built automatically by Cargo — no manual install step.
+
 ## Running
 
 Each Cargo project runs with:
